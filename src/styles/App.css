@@ -1,0 +1,25 @@
+ .App {
+   text-align: center;
+ }
+
+ /* .cart-icon {
+  margin-left: 90vw !important
+} */
+
+ .ecomm-logo {
+   width: 40px;
+   height: 40px
+ }
+
+ .offers-div {
+   padding: 50px 0
+ }
+
+ .shop-by-category {
+   float: left
+ }
+
+ .card-img-top {
+   width: 360px;
+   height: 360px
+ }
