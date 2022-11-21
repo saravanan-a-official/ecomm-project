@@ -34,7 +34,9 @@ function Header() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/view-all-products">View All Products</Nav.Link>
+                <Nav.Link href="/view-all-products/">
+                  View All Products
+                </Nav.Link>
                 <NavDropdown title="Account Settings" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/view-profile">
                     View Profile

@@ -1,23 +1,12 @@
-import { useSelector } from "react-redux";
-import DisplayProductTiles from "../components/display-product-tiles";
-import Header from "../components/global/header";
-import Footer from "../components/global/footer";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import DisplayAllProducts from "../components/display-all-products";
 
+import { getAllProductsData } from "../redux/action";
 function ProductListingPage() {
-  const allProductsData = useSelector((state) => state);
-  return (
-    <>
-      {" "}
-      <Header />
-      <div className="product-listing-page App">
-        <h1>Product Listing Page</h1>
-        <div className="card-group">
-          <DisplayProductTiles allProductsData={allProductsData.allProducts} />
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+  const dispatch = useDispatch();
+  useEffect(() => { dispatch(getAllProductsData()) });
+  return <DisplayAllProducts />;
 }
 
 export default ProductListingPage;

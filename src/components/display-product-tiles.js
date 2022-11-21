@@ -2,7 +2,6 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 
 function DisplayProductTiles(props) {
   const allProductsData = props.allProductsData;
-  console.log(allProductsData);
   const cardData = allProductsData.map((productData, idx) => {
     return (
       <Col>
