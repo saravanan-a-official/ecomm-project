@@ -5,7 +5,7 @@ export async function getAllProducts() {
   return axiosNewsResponse.data;
 }
 
-export async function getProductsByCategory(category = "jewellery") {
+export async function getProductsByCategory(category = "jewelery") {
   const axiosNewsResponse = await axios.get(
     "/products/category/" + category,
     {}

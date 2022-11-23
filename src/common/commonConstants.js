@@ -17,6 +17,7 @@ export const INITIAL_STATE = {
     jewelery: [],
     "men's clothing": [],
     "women's clothing": [],
+    offers: []
   },
 
   isLoggedin: false,

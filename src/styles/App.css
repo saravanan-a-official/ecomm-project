@@ -17,10 +17,34 @@
  }
 
  .shop-by-category {
-   float: left
+   display: inline-block;
  }
 
  .card-img-top {
    width: 360px;
    height: 360px
+ }
+
+ .footer-section {
+   color: white;
+   clear: both
+ }
+
+ .MuiDivider-root {
+   color: white !important
+ }
+
+ .body {
+   margin: 0% 10%
+ }
+
+ .css-ta95xa-MuiImageListItem-root .MuiImageListItem-img {
+   height: 130px !important;
+   width: 140px !important;
+   object-fit: unset !important;
+ }
+
+ .css-dasnyc-MuiImageListItemBar-title {
+   width: 140px;
+   text-overflow: ellipsis;
  }

@@ -4,7 +4,7 @@ import { getProductsByCategory } from "../redux/action";
 function ShopByCateogry(props) {
   const dispatch = useDispatch();
   dispatch(getProductsByCategory(props.category));
-  return <DisplayProductByCategory />;
+  return <DisplayProductByCategory category={props.category} />;
 }
 
 export default ShopByCateogry;

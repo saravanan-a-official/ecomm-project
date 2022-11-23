@@ -1,11 +1,11 @@
-import { call, put, takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all, takeEvery } from "redux-saga/effects";
 import * as CommonConstants from "../../common/commonConstants";
 import * as api from "../../api/getProductData";
 
 function* getNewsDataWatcher() {
   yield all([
     takeLatest(CommonConstants.LOAD_ALL_PRODUCTS, pushAllProductsToStore),
-    takeLatest(
+    takeEvery(
       CommonConstants.LOAD_PRODS_BY_CATEGORY,
       pushCategoryProductsToStore
     ),

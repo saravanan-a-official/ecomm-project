@@ -6,17 +6,16 @@ import DisplayOffers from "./display-offers";
 import RecentBuysNotification from "./display-recent-buy-notification";
 import * as CommonConstants from "../common/commonConstants";
 import PromoBanners from "./promo-banners";
-import { Link } from "react-router-dom";
 function RenderHomePage() {
   return (
     <>
       <Header />
-      <DisplayOffers />
-      <PromoBanners />
-      <ShopByCateogry category={CommonConstants.JEWELLERY_CATEGORY} />
-      <ShopByCateogry category={CommonConstants.ELECTRONICS_CATEGORY} />
-      <RecentBuysNotification />
-      <Link to="/view-all-products/">View All Products</Link>
+      <div className="body"><DisplayOffers />
+        <PromoBanners />
+        <ShopByCateogry category={CommonConstants.JEWELLERY_CATEGORY} />
+        <ShopByCateogry category={CommonConstants.ELECTRONICS_CATEGORY} />
+        <RecentBuysNotification />
+      </div>
       <Footer />
     </>
   );
