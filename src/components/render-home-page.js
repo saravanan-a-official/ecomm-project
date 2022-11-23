@@ -12,8 +12,8 @@ function RenderHomePage() {
       <Header />
       <div className="body"><DisplayOffers />
         <PromoBanners />
-        <ShopByCateogry category={CommonConstants.JEWELLERY_CATEGORY} />
-        <ShopByCateogry category={CommonConstants.ELECTRONICS_CATEGORY} />
+        <ShopByCateogry category={CommonConstants.WOMENS_BAGS_CATEGORY} />
+        <ShopByCateogry category={CommonConstants.LAPTOPS_CATEGORY} />
         <RecentBuysNotification />
       </div>
       <Footer />

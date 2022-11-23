@@ -6,6 +6,7 @@ import SpinnerComponent from "./spinner-component";
 
 function DisplayAllProducts() {
   const allProductsData = useSelector((state) => state);
+  console.log("allProductsData", allProductsData)
   const productDetailsData = (
     <div className="body product-listing-page App">
       <h1>Product Listing Page</h1>

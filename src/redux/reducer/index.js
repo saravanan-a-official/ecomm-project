@@ -12,11 +12,11 @@ const reducer = (
     case CommonConstants.LOAD_ALL_PRODUCTS:
       return { ...state, isLoading: true };
     case CommonConstants.GET_ALL_PRODUCTS_OK:
-      return { ...state, allProducts: action.payload, isLoading: false };
+      return { ...state, allProducts: action.payload.products, isLoading: false };
     case CommonConstants.LOAD_PRODS_BY_CATEGORY:
       return { ...state, isLoading: true };
     case CommonConstants.GET_PRODS_BY_CATEGORY_OK:
-      const category = action.payload[0].category;
+      const category = action.payload.category;
       const productsByCategoryUpdated = state.productsByCategory;
       productsByCategoryUpdated[category] = action.payload;
       return {

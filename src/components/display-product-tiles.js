@@ -6,7 +6,7 @@ function DisplayProductTiles(props) {
     return (
       <Col>
         <Card style={{ width: "30rem" }} key={idx}>
-          <Card.Img variant="top" src={productData.image} />
+          <Card.Img variant="top" src={productData.thumbnail} />
           <Card.Body>
             <Card.Title>{productData.title}</Card.Title>
             <Card.Text>{productData.description}</Card.Text>

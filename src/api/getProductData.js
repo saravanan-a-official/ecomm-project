@@ -5,10 +5,12 @@ export async function getAllProducts() {
   return axiosNewsResponse.data;
 }
 
-export async function getProductsByCategory(category = "jewelery") {
+export async function getProductsByCategory(category = "jewellery") {
   const axiosNewsResponse = await axios.get(
     "/products/category/" + category,
     {}
   );
-  return axiosNewsResponse.data;
+  let finalResponse = axiosNewsResponse.data;
+  finalResponse.category = category;
+  return finalResponse;
 }

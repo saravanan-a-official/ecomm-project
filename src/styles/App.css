@@ -40,11 +40,16 @@
 
  .css-ta95xa-MuiImageListItem-root .MuiImageListItem-img {
    height: 130px !important;
-   width: 140px !important;
+   width: 160px !important;
    object-fit: unset !important;
  }
 
  .css-dasnyc-MuiImageListItemBar-title {
    width: 140px;
    text-overflow: ellipsis;
+ }
+
+ .card-img-top {
+   margin-left: auto;
+   margin-right: auto;
  }
