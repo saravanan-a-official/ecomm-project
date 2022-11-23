@@ -1,11 +1,8 @@
 import Spinner from "react-bootstrap/Spinner";
-
-function SpinnerComponent() {
+function SpinnerComponent(props) {
   return (
     <Spinner animation="border" role="status">
-      <span className="visually-hidden">
-        Fetching product details... Please wait...
-      </span>
+      <span className="visually-hidden">{props.text}</span>
     </Spinner>
   );
 }

@@ -13,6 +13,11 @@ const reducer = (
       return { ...state, isLoading: true };
     case CommonConstants.GET_ALL_PRODUCTS_OK:
       return { ...state, allProducts: action.payload.products, isLoading: false };
+
+    case CommonConstants.LOAD_PRODUCT_DETAILS:
+      return { ...state, isLoading: true };
+    case CommonConstants.GET_PRODUCT_DETAILS_OK:
+      return { ...state, productDetails: action.payload, isLoading: false };
     case CommonConstants.LOAD_PRODS_BY_CATEGORY:
       return { ...state, isLoading: true };
     case CommonConstants.GET_PRODS_BY_CATEGORY_OK:

@@ -6,7 +6,6 @@ import SpinnerComponent from "./spinner-component";
 
 function DisplayAllProducts() {
   const allProductsData = useSelector((state) => state);
-  console.log("allProductsData", allProductsData)
   const productDetailsData = (
     <div className="body product-listing-page App">
       <h1>Product Listing Page</h1>
@@ -19,7 +18,7 @@ function DisplayAllProducts() {
     <>
       <Header />
       <div className="display-all-products App">
-        {allProductsData.allProducts.length > 0 ? productDetailsData : <SpinnerComponent />}
+        {allProductsData.allProducts.length > 0 ? productDetailsData : <SpinnerComponent text="Fetcing all products. Please wait"></SpinnerComponent>}
       </div>
       <Footer />
     </>

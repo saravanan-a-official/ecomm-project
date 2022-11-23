@@ -5,6 +5,7 @@ import * as api from "../../api/getProductData";
 function* getNewsDataWatcher() {
   yield all([
     takeLatest(CommonConstants.LOAD_ALL_PRODUCTS, pushAllProductsToStore),
+    takeLatest(CommonConstants.LOAD_PRODUCT_DETAILS, pushProductToStore),
     takeEvery(
       CommonConstants.LOAD_PRODS_BY_CATEGORY,
       pushCategoryProductsToStore
@@ -30,5 +31,17 @@ function* pushCategoryProductsToStore(action) {
     payload: categoryProducts,
   });
 }
+
+function* pushProductToStore(action) {
+  const productDetails = yield call(
+    api.getProductDetails,
+    action.payload
+  );
+  yield put({
+    type: CommonConstants.GET_PRODUCT_DETAILS_OK,
+    payload: productDetails,
+  });
+}
+
 
 export default getNewsDataWatcher;

@@ -3,6 +3,8 @@ export const LOAD_ALL_PRODUCTS = "LOAD_ALL_PRODUCTS";
 export const GET_ALL_PRODUCTS_OK = "GET_ALL_PRODUCTS_OK";
 export const LOAD_PRODS_BY_CATEGORY = "LOAD_PRODS_BY_CATEGORY";
 export const GET_PRODS_BY_CATEGORY_OK = "GET_PRODS_BY_CATEGORY_OK";
+export const LOAD_PRODUCT_DETAILS = "LOAD_PRODUCT_DETAILS";
+export const GET_PRODUCT_DETAILS_OK = "GET_PRODUCT_DETAILS_OK";
 
 export const SMARTPHONE_CATEGORY = "smartphones";
 export const LAPTOPS_CATEGORY = "laptops";
@@ -71,7 +73,7 @@ export const INITIAL_STATE = {
     "lighting": [],
     "offers": []
   },
-
+  productDetails: {},
   isLoggedin: false,
   isLoading: false,
 };

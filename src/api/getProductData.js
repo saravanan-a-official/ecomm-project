@@ -14,3 +14,7 @@ export async function getProductsByCategory(category = "jewellery") {
   finalResponse.category = category;
   return finalResponse;
 }
+export async function getProductDetails(id = 1) {
+  const axiosNewsResponse = await axios.get("/products/" + id, {});
+  return axiosNewsResponse.data;
+} 

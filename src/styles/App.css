@@ -2,10 +2,6 @@
    text-align: center;
  }
 
- /* .cart-icon {
-  margin-left: 90vw !important
-} */
-
  .ecomm-logo {
    width: 40px;
    height: 40px
@@ -52,4 +48,21 @@
  .card-img-top {
    margin-left: auto;
    margin-right: auto;
+ }
+
+ .d-block.w-100 {
+
+   width: 500px;
+   height: 312px
+ }
+
+ .carousel {
+   width: 70%;
+
+   width: 500px;
+   height: 312px
+ }
+
+ .product-details-page {
+   margin: 5% 15% 10% 15%;
  }

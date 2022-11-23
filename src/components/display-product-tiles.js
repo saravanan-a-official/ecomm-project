@@ -10,8 +10,7 @@ function DisplayProductTiles(props) {
           <Card.Body>
             <Card.Title>{productData.title}</Card.Title>
             <Card.Text>{productData.description}</Card.Text>
-            <Button variant="primary">Add to Cart</Button>&nbsp;
-            <Button variant="secondary">Checkout</Button>
+            <Button variant="primary" href={"/view-product-details/" + productData.id} >View More Details</Button>
           </Card.Body>
         </Card>
       </Col>
