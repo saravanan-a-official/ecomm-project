@@ -11,3 +11,7 @@ export function getProductsByCategory(category) {
 export function getProductDetails(id) {
   return { type: CommonConstants.LOAD_PRODUCT_DETAILS, payload: id };
 }
+
+export function addtoCart(producDetails) {
+  return { type: CommonConstants.ADD_TO_CART, payload: producDetails };
+}

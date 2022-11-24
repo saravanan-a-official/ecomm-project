@@ -1,11 +1,15 @@
 
-import { Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
-import { Badge, Carousel } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Button, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+import { Badge, Carousel, } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Footer from "../components/global/footer";
 import Header from "../components/global/header";
 import SpinnerComponent from "./spinner-component";
+
+import Select from '@mui/joy/Select';
+import Option from '@mui/joy/Option';
+import { addtoCart } from "../redux/action";
 function DisplayProductDetails() {
     const productDetails = useSelector(state => state).productDetails
 
@@ -16,14 +20,15 @@ function DisplayProductDetails() {
 
             <div className="shop-by-category small-size">{productDetails.images?.length > 0 ? <Carousel>{formCarousel(productDetails.images)}</Carousel> : <SpinnerComponent text="Loading data"></SpinnerComponent>}</div>
             <div className="shop-by-category">
-                {displayProductDetailsInTable(productDetails)}
+                {DisplayProductDetailsInTable(productDetails)}
             </div>
         </div>
         <Footer />
     </div >)
 }
 
-function displayProductDetailsInTable(productDetails) {
+function DisplayProductDetailsInTable(productDetails) {
+    const dispatch = useDispatch();
     return <TableContainer>
         <Table sx={{ maxWidth: 350 }} aria-label="simple table">
             <TableBody>
@@ -78,6 +83,33 @@ function displayProductDetailsInTable(productDetails) {
 
                     <TableCell align="right"><b>Product Price</b></TableCell>
                     <TableCell align="right">${productDetails.price}</TableCell>
+
+                </TableRow>
+                <TableRow
+                    key="Product Price2"
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                    <TableCell align="right">
+                        <Button variant="primary">
+                            <Select
+                                color="primary"
+                                disabled={false}
+                                placeholder="Quantity"
+                                size="lg">
+                                <Option value="1">1</Option>
+                                <Option value="2">2</Option>
+                            </Select>
+                        </Button>
+                    </TableCell>
+                </TableRow>
+                <TableRow
+                    key="Product Price1"
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+
+
+                    <TableCell align="right"><Button variant="primary" onClick={() => dispatch(addtoCart(productDetails))}><Link to="/view-cart/">Add to Cart</Link></Button></TableCell>
+                    <TableCell align="right"><Button variant="secondary">Buy Now</Button></TableCell>
 
                 </TableRow>
 

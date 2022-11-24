@@ -13,6 +13,13 @@ const reducer = (
       return { ...state, isLoading: true };
     case CommonConstants.GET_ALL_PRODUCTS_OK:
       return { ...state, allProducts: action.payload.products, isLoading: false };
+    case CommonConstants.ADD_TO_CART:
+      return { ...state, isLoading: true };
+    case CommonConstants.ADD_TO_CART_OK:
+      const cartData = state.cart;
+      cartData.push(action.payload)
+      console.log(state)
+      return { ...state, cart: cartData, isLoading: false };
 
     case CommonConstants.LOAD_PRODUCT_DETAILS:
       return { ...state, isLoading: true };

@@ -5,6 +5,9 @@ export const LOAD_PRODS_BY_CATEGORY = "LOAD_PRODS_BY_CATEGORY";
 export const GET_PRODS_BY_CATEGORY_OK = "GET_PRODS_BY_CATEGORY_OK";
 export const LOAD_PRODUCT_DETAILS = "LOAD_PRODUCT_DETAILS";
 export const GET_PRODUCT_DETAILS_OK = "GET_PRODUCT_DETAILS_OK";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_TO_CART_OK = "ADD_TO_CART_OK";
+
 
 export const SMARTPHONE_CATEGORY = "smartphones";
 export const LAPTOPS_CATEGORY = "laptops";
@@ -78,6 +81,7 @@ export const INITIAL_STATE = {
   productDetails: {},
   isLoggedin: false,
   isLoading: false,
+  cart: []
 };
 
 export const PROMO_BANNERS_JSON = [

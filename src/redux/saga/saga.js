@@ -6,6 +6,7 @@ function* getNewsDataWatcher() {
   yield all([
     takeLatest(CommonConstants.LOAD_ALL_PRODUCTS, pushAllProductsToStore),
     takeLatest(CommonConstants.LOAD_PRODUCT_DETAILS, pushProductToStore),
+    takeLatest(CommonConstants.ADD_TO_CART, pushProductoCart),
     takeEvery(
       CommonConstants.LOAD_PRODS_BY_CATEGORY,
       pushCategoryProductsToStore
@@ -42,6 +43,12 @@ function* pushProductToStore(action) {
     payload: productDetails,
   });
 }
+function* pushProductoCart(action) {
 
+  yield put({
+    type: CommonConstants.ADD_TO_CART_OK,
+    payload: action.payload,
+  });
+}
 
 export default getNewsDataWatcher;
