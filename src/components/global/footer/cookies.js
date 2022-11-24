@@ -1,0 +1,1 @@
+export default function Cookies() { return <h1>Cookies Consent Page</h1> }
