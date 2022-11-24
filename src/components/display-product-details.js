@@ -14,7 +14,7 @@ function DisplayProductDetails() {
         <div className="product-details-page">
             <h1>Product Details Page</h1>
 
-            <div className="shop-by-category">{productDetails.images?.length > 0 ? <Carousel>{formCarousel(productDetails.images)}</Carousel> : <SpinnerComponent text="Loading data"></SpinnerComponent>}</div>
+            <div className="shop-by-category small-size">{productDetails.images?.length > 0 ? <Carousel>{formCarousel(productDetails.images)}</Carousel> : <SpinnerComponent text="Loading data"></SpinnerComponent>}</div>
             <div className="shop-by-category">
                 {displayProductDetailsInTable(productDetails)}
             </div>
@@ -42,7 +42,15 @@ function displayProductDetailsInTable(productDetails) {
                 >
 
                     <TableCell align="right"><b>Product Category</b></TableCell>
-                    <TableCell align="right"><h6><Badge bg="secondary"><Link to={{ pathname: "/shop-products-by-categories/", state: { category: productDetails.category }, }}>{productDetails.category}</Link></Badge></h6></TableCell>
+                    <TableCell align="right">
+                        <h6>
+                            <Badge bg="secondary">
+                                <Link to={"/shop-products-by-categories"} state={{ "category": productDetails.category }}>
+                                    {productDetails.category}
+                                </Link>
+                            </Badge>
+                        </h6>
+                    </TableCell>
 
                 </TableRow>
                 <TableRow

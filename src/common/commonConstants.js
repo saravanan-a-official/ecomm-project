@@ -48,6 +48,8 @@ export const AUTOMOTIVE_TITLE = "Automotive";
 export const MOTORCYCLE_TITLE = "Motorcycle";
 export const LIGHTING_TITLE = "Lighting"
 
+export const HOME_PAGE = "HOME PAGE"
+
 export const INITIAL_STATE = {
   allProducts: [],
   productsByCategory: {

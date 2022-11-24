@@ -13,7 +13,7 @@ function App() {
         <Route path="/view-all-products/" element={<ProductListingPage />} />
         <Route path="/view-cart/" element={<ViewCartItems />} />
         <Route path="/view-product-details/:id" element={<ViewProductDetails />} />
-        <Route path="/shop-products-by-categories/" element={<ShopByCateogry />} />
+        <Route path="/shop-products-by-categories" element={<ShopByCateogry />} />
       </Routes>
     </BrowserRouter>
   );

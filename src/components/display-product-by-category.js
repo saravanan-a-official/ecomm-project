@@ -4,17 +4,28 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { Spinner } from 'react-bootstrap';
-
+import * as CommonConstants from "../common/commonConstants"
+import Header from './global/header';
+import Footer from './global/footer';
 
 export default function DisplayProductByCategory(props) {
   const allProductData = useSelector(state => state)
+  if (allProductData.productsByCategory[props.category] === undefined) {
+    return
+  }
   const productData = allProductData.productsByCategory[props.category].products
-
+  console.log(props)
+  const divClassName = props.pageName === null ? "shop-by-category" : "shop-by-category App"
   return (
-    <div className='shop-by-category'>
-      <h2>Shopy by Category - {props.category}</h2>
-      {productData?.length > 0 ? displayProductsByCategoryasImageGrid(productData) : <Spinner text="Fetcing all products. Please wait"></Spinner>}
-    </div>
+    <>
+      {props.pageName !== null ? null : <Header />}
+      <div className={divClassName}>
+        <h2>Shopy by Category - {props.category}</h2>
+        {productData?.length > 0 ? displayProductsByCategoryasImageGrid(productData) : <Spinner text="Fetcing all products. Please wait"></Spinner>}
+      </div>
+      {props.pageName !== null ? null : <Footer />}
+    </>
+
   );
 }
 
