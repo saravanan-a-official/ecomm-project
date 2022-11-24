@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 function Footer() {
-  return <div className="App footer-section bg-dark">
+  return <div className="App footer-section">
 
     <Stack direction="row"
       divider={<Divider orientation="vertical" />}

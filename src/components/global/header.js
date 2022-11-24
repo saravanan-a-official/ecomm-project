@@ -12,10 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
 import { Divider } from '@mui/material';
 
-const pages = [{ pageName: 'View All Products', url: "/view-all-products/" }, { pageName: 'View Offers', url: "/view-all-products/" }, { pageName: 'Login/Signup', url: "/view-all-products/" }];
+const pages = [{ pageName: 'View All Products', url: "/view-all-products/" },
+
+{ pageName: 'Login/Signup', url: "/view-all-products/" }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -38,7 +39,7 @@ function Header() {
     };
 
     return (
-        <AppBar position="static">
+        <div className="header-section"><AppBar position="static" style={{ background: "#000" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -51,7 +52,7 @@ function Header() {
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
-                            fontWeight: 700,
+                            fontWeight: 1000,
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
@@ -122,7 +123,7 @@ function Header() {
                                 key={page.pageName}
                                 onClick={handleCloseNavMenu}
                                 href={page.url}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block', fontweight: '300px' }}
                             >
                                 {page.pageName} <Divider />
                             </Button>
@@ -160,7 +161,7 @@ function Header() {
                     </Box>
                 </Toolbar>
             </Container>
-        </AppBar >
+        </AppBar ></div>
     );
 }
 export default Header;

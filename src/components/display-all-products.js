@@ -1,28 +1,49 @@
-import { useSelector } from "react-redux";
-import DisplayProductTiles from "./display-product-tiles";
-import Header from "./global/header";
-import Footer from "./global/footer";
-import SpinnerComponent from "./spinner-component";
 
-function DisplayAllProducts() {
-  const allProductsData = useSelector((state) => state);
-  const productDetailsData = (
-    <div className="body product-listing-page App">
-      <h1>Product Listing Page</h1>
-      <div className="card-group">
-        <DisplayProductTiles allProductsData={allProductsData.allProducts} />
-      </div>
-    </div>
-  );
-  return (
-    <>
-      <Header />
-      <div className="display-all-products App">
-        {allProductsData.allProducts.length > 0 ? productDetailsData : <SpinnerComponent text="Fetcing all products. Please wait"></SpinnerComponent>}
-      </div>
-      <Footer />
-    </>
-  );
+import DisplayProductTiles from "./display-product-tiles";
+import React from "react";
+
+class DisplayAllProducts extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { allProductsData: [], searchText: "", filteredProducts: [] }
+  }
+  componentDidMount() {
+    console.log("this.props.productsData", this.props.productsData)
+    this.setState({ allProductsData: this.props.productsData })
+    if (this.state.searchText === '')
+      this.setState({ filteredProducts: this.props.productsData })
+  }
+
+  updateSearchText = (event) => {
+    this.setState({ searchText: event.target.value })
+    this.setState({ filteredProducts: this.filterProductData(event.target.value) })
+  }
+
+  filterProductData = (searchString) => {
+    return this.state.allProductsData.filter((productData) => {
+      return productData.title.toLowerCase().includes(searchString.toLowerCase());
+    })
+  }
+
+  render() {
+
+    const productDetailsData = (
+      <div className="body product-listing-page App">
+        <h1>Product Listing Page</h1>
+        <div className="card-group">
+          <input type={"text"} placeholder="Search Products..." className="search-field" value={this.state.searchText} onChange={this.updateSearchText} />
+          {console.log("this.state.filterProductData", this.state.filteredProducts)}
+          <DisplayProductTiles allProductsData={this.state.filteredProducts} />
+        </div>
+      </div>)
+    return (
+      <>
+        {productDetailsData}
+      </>
+    );
+  }
 }
+
 
 export default DisplayAllProducts;

@@ -11,6 +11,7 @@ import Cookies from "../components/global/footer/cookies"
 import Feedback from "../components/global/footer/feedback"
 import ContactUs from "../components/global/footer/contact-us"
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cookies" element={<Cookies />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        {/* <Route path="/search-products" element={<SearchProduct />} /> */}
       </Routes>
     </BrowserRouter>
   );
