@@ -90,3 +90,7 @@
  .search-field {
    margin: 3% 40%
  }
+
+ .card {
+   display: contents;
+ }

@@ -16,7 +16,6 @@ function ShopByCateogry(props) {
     category = categoryFromLink
 
   }
-  console.log("category is", category)
   useEffect(() => { dispatch(getProductsByCategory(category)); })
   return <DisplayProductByCategory category={category} pageName={pageName} />;
 }

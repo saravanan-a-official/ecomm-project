@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import Footer from "../components/global/footer";
 import Header from "../components/global/header";
 import SpinnerComponent from "./spinner-component";
-
+import { useState } from "react";
 import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
+
 import { addtoCart } from "../redux/action";
 function DisplayProductDetails() {
     const productDetails = useSelector(state => state).productDetails
@@ -29,6 +29,11 @@ function DisplayProductDetails() {
 
 function DisplayProductDetailsInTable(productDetails) {
     const dispatch = useDispatch();
+    const [quantity, updateQuantity] = useState(1);
+    const handleQuantityChange = (event) => {
+        updateQuantity(event.target.value)
+    }
+
     return <TableContainer>
         <Table sx={{ maxWidth: 350 }} aria-label="simple table">
             <TableBody>
@@ -86,29 +91,37 @@ function DisplayProductDetailsInTable(productDetails) {
 
                 </TableRow>
                 <TableRow
-                    key="Product Price2"
+                    key="Product quantity"
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                     <TableCell align="right">
-                        <Button variant="primary">
-                            <Select
-                                color="primary"
-                                disabled={false}
-                                placeholder="Quantity"
-                                size="lg">
-                                <Option value="1">1</Option>
-                                <Option value="2">2</Option>
-                            </Select>
-                        </Button>
+
+                        <select
+                            color="primary"
+                            disabled={false}
+                            placeholder="Quantity"
+                            value={quantity}
+                            onChange={handleQuantityChange}
+                            size="sm">
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                        </select>
+
                     </TableCell>
                 </TableRow>
                 <TableRow
-                    key="Product Price1"
+                    key="buy now"
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-
-
-                    <TableCell align="right"><Button variant="primary" onClick={() => dispatch(addtoCart(productDetails))}><Link to="/view-cart/">Add to Cart</Link></Button></TableCell>
+                    <TableCell align="right"><Button variant="primary" onClick={() => dispatch(addtoCart({ itemDetail: productDetails, newQuantity: quantity }))}><Link to="/view-cart/">Add to Cart</Link></Button></TableCell>
                     <TableCell align="right"><Button variant="secondary">Buy Now</Button></TableCell>
 
                 </TableRow>
@@ -119,7 +132,7 @@ function DisplayProductDetailsInTable(productDetails) {
 }
 function formCarousel(images) {
     return images.map((image, idx) => {
-        return <Carousel.Item>
+        return <Carousel.Item key={idx}>
             <img
                 className="d-block w-100"
                 src={image}
@@ -132,4 +145,6 @@ function formCarousel(images) {
         </Carousel.Item>
     })
 }
+
+
 export default DisplayProductDetails;

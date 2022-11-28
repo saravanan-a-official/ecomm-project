@@ -4,7 +4,6 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { Spinner } from 'react-bootstrap';
-import * as CommonConstants from "../common/commonConstants"
 import Header from './global/header';
 import Footer from './global/footer';
 
@@ -14,7 +13,6 @@ export default function DisplayProductByCategory(props) {
     return
   }
   const productData = allProductData.productsByCategory[props.category].products
-  console.log(props)
   const divClassName = props.pageName === null ? "shop-by-category" : "shop-by-category App"
   return (
     <>

@@ -9,7 +9,6 @@ class DisplayAllProducts extends React.Component {
     this.state = { allProductsData: [], searchText: "", filteredProducts: [] }
   }
   componentDidMount() {
-    console.log("this.props.productsData", this.props.productsData)
     this.setState({ allProductsData: this.props.productsData })
     if (this.state.searchText === '')
       this.setState({ filteredProducts: this.props.productsData })
@@ -33,7 +32,6 @@ class DisplayAllProducts extends React.Component {
         <h1>Product Listing Page</h1>
         <div className="card-group">
           <input type={"text"} placeholder="Search Products..." className="search-field" value={this.state.searchText} onChange={this.updateSearchText} />
-          {console.log("this.state.filterProductData", this.state.filteredProducts)}
           <DisplayProductTiles allProductsData={this.state.filteredProducts} />
         </div>
       </div>)
