@@ -1,7 +1,8 @@
 import Footer from "../components/global/footer"
 import Header from "../components/global/header"
 import Card from 'react-bootstrap/Card';
-import SpinnerComponent from "../components/spinner-component"
+import TotalPriceBreakDown from "../components/total-price-breakdown";
+
 function ViewCartItems() {
     let stateData = JSON.parse(window.localStorage.getItem("cartItems"))
     console.log("Cart data: ", stateData)
@@ -10,14 +11,21 @@ function ViewCartItems() {
     return (
         <>
             <Header />
-            <div className="App">
+            <div className="App view-cart">
                 <h1>View Cart</h1>
                 <h2>No. of items in the cart: {stateData.length}</h2>
-                {stateData?.length > 0 ? renderCartItems(stateData) : <h1>Your cart is empty.</h1>}
+                {stateData?.length > 0 ? renderCartItemsAndBreakdownTable(stateData) : <h1>Your cart is empty.</h1>}
             </div>
             <Footer />
         </>
     )
+}
+
+function renderCartItemsAndBreakdownTable(stateData) {
+    return <>
+        {renderCartItems(stateData)}
+        < TotalPriceBreakDown cartItems={stateData} />
+    </>
 }
 
 function renderCartItems(cartData) {
