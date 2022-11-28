@@ -4,7 +4,7 @@ function DisplayProductTiles(props) {
   const allProductsData = props.allProductsData;
   const cardData = allProductsData.map((productData, idx) => {
     return (
-      <Col>
+      <Col key={idx}>
         <Card style={{ width: "30rem" }} key={idx}>
           <Card.Img variant="top" src={productData.thumbnail} />
           <Card.Body>

@@ -21,7 +21,7 @@ const reducer = (
 
     case CommonConstants.ADD_TO_CART_OK:
       let cartData = []
-      if (window.localStorage.getItem("cartItems") !== undefined) {
+      if (window.localStorage.getItem("cartItems") !== null) {
         cartData = JSON.parse(window.localStorage.getItem("cartItems"))
       }
       const updatedCartData = checkAndUpdateCart(cartData, action.payload)
@@ -58,10 +58,12 @@ const reducer = (
 function checkAndUpdateCart(stateData, productDetails) {
   var isNewProduct = true;
   let newCartItems = stateData.map((currItem, idx) => {
-    if (productDetails.id === currItem.id) {
+    console.log("productDetails ", productDetails.itemDetail)
+    console.log("currItem.id ", currItem.id)
+    if (productDetails.itemDetail.id === currItem.id) {
       console.log("Product exits. Updating qty.")
-      let updateItemsDetails = currItem;
-      updateItemsDetails.quantity = productDetails.newQuantity;
+      var updateItemsDetails = currItem; updateItemsDetails["quantity"] = 0;
+      updateItemsDetails["quantity"] = productDetails.newQuantity;
       isNewProduct = false;
       return updateItemsDetails
     } else {
@@ -70,8 +72,10 @@ function checkAndUpdateCart(stateData, productDetails) {
   })
   if (isNewProduct) {
     console.log("new product")
-    let newProductDetails = productDetails.itemDetail;
-    newProductDetails.quantity = productDetails.newQuantity;
+    var newProductDetails = productDetails.itemDetail;
+    console.log("newProductDetails", newProductDetails)
+    newProductDetails["quantity"] = 0;
+    newProductDetails["quantity"] = productDetails.newQuantity;
     newCartItems.push(newProductDetails)
   }
   return newCartItems

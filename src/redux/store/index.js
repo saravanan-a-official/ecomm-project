@@ -2,10 +2,10 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 
 import reducer from "../reducer";
-import getNewsDataWatcher from "../saga/saga";
+import productsAPIWatcher from "../saga/saga";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 
-sagaMiddleware.run(getNewsDataWatcher);
+sagaMiddleware.run(productsAPIWatcher);
 export default store;
