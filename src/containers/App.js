@@ -10,6 +10,10 @@ import About from "../components/global/footer/about"
 import Cookies from "../components/global/footer/cookies"
 import Feedback from "../components/global/footer/feedback"
 import ContactUs from "../components/global/footer/contact-us"
+import PaymentPage from "./payment-page";
+import Upi from "../components/payment-options/upi";
+import CreditDebitCart from "../components/payment-options/credit-debit-card";
+import NetBanking from "../components/payment-options/net-banking";
 
 
 function App() {
@@ -26,7 +30,7 @@ function App() {
         <Route path="/cookies" element={<Cookies />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-        {/* <Route path="/search-products" element={<SearchProduct />} /> */}
+        <Route path="/payment-page" element={<PaymentPage />} />
       </Routes>
     </BrowserRouter>
   );

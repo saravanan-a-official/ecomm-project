@@ -1,14 +1,15 @@
 import { TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Table from '@mui/material/Table';
+import Button from 'react-bootstrap/Button';
 export default function TotalPriceBreakDown(cartItems) {
     let totalCost = 0;
     cartItems.cartItems.map((currItem) => {
         totalCost += +currItem.price;
     });
-    const discount = totalCost * 0.1;
+    const discount = Math.round((totalCost * 0.1 * 0.18))
     const deliveryCharges = 20;
-    const tax = (totalCost - discount) * 0.18
-    const grandTotal = totalCost - discount + deliveryCharges + tax
+    const tax = Math.round((totalCost - discount) * 0.18)
+    const grandTotal = Math.round((totalCost - discount + deliveryCharges + tax * 0.18))
 
     return (
         <div className="cost-breakdown">
@@ -60,6 +61,7 @@ export default function TotalPriceBreakDown(cartItems) {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Button href="/payment-page">Proceed to Payment</Button>
         </div>)
 }
 

@@ -87,9 +87,8 @@
    font-weight: bolder;
  }
 
- .search-field,
- {
- margin: 3% 40%
+ .search-field {
+   margin: 3% 40%
  }
 
  .cost-breakdown {
@@ -98,6 +97,11 @@
 
  .view-cart .card {
    border: 1px solid black;
+   width: 50% !important;
+   margin: 3% 25%;
+ }
+
+ .payment-options {
    width: 50% !important;
    margin: 3% 25%;
  }
