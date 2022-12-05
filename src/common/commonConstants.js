@@ -53,7 +53,10 @@ export const LIGHTING_TITLE = "Lighting"
 
 export const HOME_PAGE = "HOME PAGE"
 
+export const FIREBASE_API_KEY = "AIzaSyACuf71w9JchIOGH0PY_-24ZvulV5K4AMg"
+
 export const INITIAL_STATE = {
+  userName: "sara",
   allProducts: [],
   productsByCategory: {
     "smartphones": [],

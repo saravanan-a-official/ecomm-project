@@ -2,6 +2,7 @@ import { Button, Tabs, Tab } from "react-bootstrap"
 import CreditDebitCart from "./payment-options/credit-debit-card"
 import NetBanking from "./payment-options/net-banking"
 import Upi from "./payment-options/upi"
+import { addUpdateUserDataToFirebase } from "../db/addDataToFirebase"
 
 export default function DisplayPaymentOffers() {
     return (
@@ -22,7 +23,11 @@ export default function DisplayPaymentOffers() {
                 </Tab>
 
             </Tabs>
-            <Button>Place Order</Button>
+            <Button onClick={() => addUpdateUserDataToFirebase({
+                name: "sara",
+                state: "IN",
+                country: "INDIA"
+            })}>Place Order</Button>
         </div>
     )
 }

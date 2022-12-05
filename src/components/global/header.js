@@ -15,8 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Divider } from '@mui/material';
 
 const pages = [{ pageName: 'View All Products', url: "/view-all-products/" },
-
-{ pageName: 'Login/Signup', url: "/view-all-products/" }];
+{ pageName: 'Login/Signup', url: "/view-all-products/" },
+{ pageName: 'View Cart', url: "/view-cart/" }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {

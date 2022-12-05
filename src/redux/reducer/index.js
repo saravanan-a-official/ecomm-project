@@ -1,5 +1,7 @@
 
 import * as CommonConstants from "../../common/commonConstants";
+import { updateOrderDataToFirebase } from "../../db/addDataToFirebase";
+import { getCartDataFromFirebase } from "../../db/getDataFromFirebase";
 
 const initialState = CommonConstants.INITIAL_STATE;
 
@@ -20,15 +22,18 @@ const reducer = (
       return { ...state, isLoading: true };
 
     case CommonConstants.ADD_TO_CART_OK:
-      let cartData = []
-      if (window.localStorage.getItem("cartItems") !== null) {
-        cartData = JSON.parse(window.localStorage.getItem("cartItems"))
+      let cartData = [];
+      const dataFromFirebase = getCartData(state)
+      if (dataFromFirebase !== undefined && dataFromFirebase !== "") {
+        cartData = dataFromFirebase
       }
+
       const updatedCartData = checkAndUpdateCart(cartData, action.payload)
       console.log("Existing cart ", cartData)
       console.log("updatedCartData", updatedCartData)
       console.log("action.payload", action.payload)
       window.localStorage.setItem("cartItems", JSON.stringify(updatedCartData))
+      console.log("updateOrderDataToFirebase(state.userName, { cart: updatedCartData }) ", updateOrderDataToFirebase(state.userName, { cart: updatedCartData }))
       return { ...state, cart: updatedCartData, isLoading: false };
 
     case CommonConstants.LOAD_PRODUCT_DETAILS:
@@ -55,8 +60,13 @@ const reducer = (
   }
 };
 
+async function getCartData(state) {
+  return await getCartDataFromFirebase(state.userName)
+}
+
 function checkAndUpdateCart(stateData, productDetails) {
   var isNewProduct = true;
+  console.log("stateData ", stateData)
   let newCartItems = stateData.map((currItem, idx) => {
     console.log("productDetails ", productDetails.itemDetail)
     console.log("currItem.id ", currItem.id)
