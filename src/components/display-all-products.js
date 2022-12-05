@@ -31,7 +31,15 @@ class DisplayAllProducts extends React.Component {
       <div className="body product-listing-page App">
         <h1>Product Listing Page</h1>
         <div className="card-group">
-          <input type={"text"} placeholder="Search Products..." className="search-field" value={this.state.searchText} onChange={this.updateSearchText} />
+          <input
+            type="text"
+            name="price"
+            id="price"
+            value={this.state.searchText}
+
+            className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="0.00"
+          />
           <DisplayProductTiles allProductsData={this.state.filteredProducts} />
         </div>
       </div>)

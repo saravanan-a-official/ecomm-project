@@ -1,25 +1,43 @@
-import { Button, Card, Col, Row } from "react-bootstrap";
-
 function DisplayProductTiles(props) {
   const allProductsData = props.allProductsData;
+  console.log("allProductsData", allProductsData)
   const cardData = allProductsData.map((productData, idx) => {
     return (
-      <Col key={idx}>
-        <Card style={{ width: "30rem" }} key={idx}>
-          <Card.Img variant="top" src={productData.thumbnail} />
-          <Card.Body>
-            <Card.Title>{productData.title}</Card.Title>
-            <Card.Text>{productData.description}</Card.Text>
-            <Button variant="primary" href={"/view-product-details/" + productData.id} >View More Details</Button>
-          </Card.Body>
-        </Card>
-      </Col>
+
+      <div key={productData.id} className="group relative">
+        <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+          <img
+            src={productData.thumbnail}
+            alt={productData.brand + " - " + productData.title}
+            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+          />
+        </div>
+        <div className="mt-4 flex justify-between">
+          <div>
+            <h3 className="text-sm text-gray-700">
+              <a href={"/view-product-details/" + productData.id}>
+                <span aria-hidden="true" className="absolute inset-0" />
+                {productData.title}
+              </a>
+            </h3>
+            <p className="mt-1 text-sm text-gray-500">{productData.brand}</p>
+          </div>
+          <p className="text-sm font-medium text-gray-900">${productData.price}</p>
+        </div>
+      </div>
+
     );
   });
   return (
-    <Row xs={1} md={2} className="g-4">
-      {cardData}
-    </Row>
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Product listing page</h2>
+
+        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {cardData}
+        </div>
+      </div>
+    </div>
   );
 }
 

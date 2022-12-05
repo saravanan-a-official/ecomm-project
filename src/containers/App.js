@@ -14,6 +14,9 @@ import PaymentPage from "./payment-page";
 import Upi from "../components/payment-options/upi";
 import CreditDebitCart from "../components/payment-options/credit-debit-card";
 import NetBanking from "../components/payment-options/net-banking";
+import ViewMyProfile from "../components/profile/view-my-profile";
+import ViewProfile from "./view-profile";
+import EditMyProfile from "../components/profile/edit-my-profile";
 
 
 function App() {
@@ -31,6 +34,8 @@ function App() {
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/payment-page" element={<PaymentPage />} />
+        <Route path="/profile/view-my-profile" element={<ViewProfile />} />
+        <Route path="/profile/edit-my-profile" element={<EditMyProfile />} />
       </Routes>
     </BrowserRouter>
   );
