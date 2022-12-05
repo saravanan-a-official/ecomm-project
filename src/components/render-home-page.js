@@ -6,11 +6,13 @@ import DisplayOffers from "./display-offers";
 import RecentBuysNotification from "./display-recent-buy-notification";
 import * as CommonConstants from "../common/commonConstants";
 import PromoBanners from "./promo-banners";
+import DisplayOfferBanner from "./display-offer-banner";
 function RenderHomePage() {
   return (
     <>
       <Header />
-      <div className="body"><DisplayOffers />
+      <div className="body">
+        <DisplayOffers />
         <PromoBanners />
         <ShopByCateogry category={CommonConstants.WOMENS_BAGS_CATEGORY} />
         <ShopByCateogry category={CommonConstants.LAPTOPS_CATEGORY} />

@@ -19,7 +19,7 @@ export default function DisplayProductByCategory(props) {
       {props.pageName !== null ? null : <Header />}
       <div className={divClassName}>
         <h2>Shopy by Category - {props.category}</h2>
-        {productData?.length > 0 ? displayProductsByCategoryasImageGrid(productData) : <Spinner text="Fetcing all products. Please wait"></Spinner>}
+        {productData?.length > 0 ? displayProductsByCategoryasImageGrid(productData, props.category) : <Spinner text="Fetcing all products. Please wait"></Spinner>}
       </div>
       {props.pageName !== null ? null : <Footer />}
     </>
@@ -27,10 +27,10 @@ export default function DisplayProductByCategory(props) {
   );
 }
 
-function displayProductsByCategoryasImageGrid(productData) {
+function displayProductsByCategoryasImageGrid(productData, category) {
   return <ImageList sx={{ width: 500, height: 450 }}>
-    {productData.slice(0, 4).map((item) => (
-      <ImageListItem key={item.img}>
+    {productData.slice(0, 4).map((item, idx) => (
+      <ImageListItem key={category + idx}>
         <img
           src={`${item.thumbnail}`}
           srcSet={`${item.thumbnail}`}

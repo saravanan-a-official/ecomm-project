@@ -4,7 +4,7 @@ function PromoBanners() {
   const promoCarouselItems = CommonConstants.PROMO_BANNERS_JSON.map(
     (promoData, idx) => {
       return (
-        <Carousel.Item>
+        <Carousel.Item key={idx}>
           <img
             className="d-block w-100"
             src={promoData.fileName}
