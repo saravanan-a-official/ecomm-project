@@ -1,16 +1,14 @@
 
-import { Button, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
-import { Badge, Carousel, } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Footer from "../components/global/footer";
-import Header from "../components/global/header";
-import SpinnerComponent from "./spinner-component";
-import { useState } from "react";
-import Select from '@mui/joy/Select';
+import { useSelector } from 'react-redux'
+import { Spinner } from 'react-bootstrap'
+import DisplayDetails from './DisplayDetails'
+import Header from './global/header';
+import Footer from './global/footer';
+import SpinnerComponent from "./spinner-component"
 
-import { addtoCart } from "../redux/action";
-function DisplayProductDetails() {
+
+export default function DisplayProductDetails() {
+
     const productDetails = useSelector(state => state).productDetails
     console.log(productDetails);
     return <>
@@ -176,5 +174,3 @@ function displayProductDetails(productDetails) {
         </div>
     </div>)
 }
-
-export default DisplayProductDetails;
