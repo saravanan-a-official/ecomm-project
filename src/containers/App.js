@@ -21,23 +21,25 @@ import EditMyProfile from "../components/profile/edit-my-profile";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/view-all-products/" element={<ProductListingPage />} />
-        <Route path="/view-cart/" element={<ViewCartItems />} />
-        <Route path="/view-product-details/:id" element={<ViewProductDetails />} />
-        <Route path="/shop-products-by-categories" element={<ShopByCateogry />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cookies" element={<Cookies />} />
-        <Route path="/feedback" element={<Feedback />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/payment-page" element={<PaymentPage />} />
-        <Route path="/profile/view-my-profile" element={<ViewProfile />} />
-        <Route path="/profile/edit-my-profile" element={<EditMyProfile />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="font-sans">
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/view-all-products/" element={<ProductListingPage />} />
+          <Route path="/view-cart/" element={<ViewCartItems />} />
+          <Route path="/view-product-details/:id" element={<ViewProductDetails />} />
+          <Route path="/shop-products-by-categories" element={<ShopByCateogry />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/payment-page" element={<PaymentPage />} />
+          <Route path="/profile/view-my-profile" element={<ViewProfile />} />
+          <Route path="/profile/edit-my-profile" element={<EditMyProfile />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

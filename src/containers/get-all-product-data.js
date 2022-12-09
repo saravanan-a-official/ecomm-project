@@ -6,6 +6,13 @@ import Header from "../components/global/header";
 import Footer from "../components/global/footer";
 export default function GetAllProductData() {
     const allProductsData = useSelector((state) => state);
-    return (<><Header /><div className="display-all-products App">
-        {allProductsData.allProducts.length > 0 ? <DisplayAllProducts productsData={allProductsData.allProducts} /> : <SpinnerComponent text="Fetcing all products. Please wait"></SpinnerComponent>}</div><Footer /></>)
+    return (
+        <>
+            <Header />
+            <div className="flex items-center">
+                {allProductsData.allProducts.length > 0 ? <DisplayAllProducts productsData={allProductsData.allProducts} /> : <SpinnerComponent text="Fetcing all products. Please wait"></SpinnerComponent>}
+            </div>
+            <Footer />
+        </>
+    )
 }

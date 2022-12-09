@@ -28,20 +28,20 @@ class DisplayAllProducts extends React.Component {
   render() {
 
     const productDetailsData = (
-      <div className="body product-listing-page App">
-        <h1>Product Listing Page</h1>
-        <div className="card-group">
+      <div className="items-center mx-40">
+        <div className="App">
           <input
             type="text"
             name="price"
             id="price"
             value={this.state.searchText}
-
-            className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            placeholder="0.00"
+            onChange={(event) => this.updateSearchText(event)}
+            className="justify-items-center rounded-md border-gray-300 my-3 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg"
+            placeholder="Search products..."
           />
-          <DisplayProductTiles allProductsData={this.state.filteredProducts} />
         </div>
+        <DisplayProductTiles allProductsData={this.state.filteredProducts} />
+
       </div>)
     return (
       <>
